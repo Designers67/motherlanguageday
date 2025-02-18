@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/png" href="bd.png">
+    <title>International Mother Language Day</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #006a4e, #ff0000, #006a4e);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+            background-size: cover;
+        }
+        header {
+            padding: 50px;
+            font-size: 3rem;
+            font-weight: bold;
+            transition: all 1s ease-in-out;
+            animation: headerAnimation 2s ease-in-out infinite alternate;
+        }
+        @keyframes headerAnimation {
+            0% { color: white; transform: scale(1); }
+            100% { color: #ffdd00; transform: scale(1.1); }
+        }
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: white;
+            opacity: 0.7;
+            animation: rain 2s linear infinite;
+        }
+        @keyframes rain {
+            from { transform: translateY(-10px); }
+            to { transform: translateY(100vh); }
+        }
+        .world-map, .bangladesh-map {
+            width: 30%;
+            margin: 10px auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .world-map:hover, .bangladesh-map:hover {
+            transform: scale(1.1);
+        }
+        .martyrs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .martyr {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        .martyr:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            z-index: 10;
+            text-align: left;
+            width: 60%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .mini-game {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .quotes-carousel {
+            margin: 50px auto;
+            width: 80%;
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .quotes-carousel p {
+            margin-bottom: 20px;
+        }
+        .btn{
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(to right, #ff0000, #006a4e);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .btn:hover{
+            background: linear-gradient(to right, #006a4e, #ff0000);
+        }
+        .btn a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>International Mother Language Day</header>
+    <img src="world-map.png" class="world-map" alt="World Map">
+    <h2>Bangladesh - The Heart of February 21</h2>
+    <img src="bangladesh-map.png" class="bangladesh-map" alt="Bangladesh Map" onclick="showMiniGame()">
+    
+    <h2>The Seven Language Martyrs</h2>
+    <div class="martyrs">
+        <img src="martyr1.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Mohiuddin Jahangir</b><br>Birthday: March 6, 1945<br>Birth district: Barisal<br>Rank: Captain<br>ID Number: BSS-10439<br>Squad: Bangladesh Army.<br>Martyr Day: December 9, 1971<br>">
+        <img src="martyr2.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Matiur Rahman</b><br>Birthday: October 29, 1941<br>Birth district: Dhaka<br>Rank: Flight Lieutenant<br>ID Number: 4367 (Pakistan)<br>Squad: Bangladesh Air Force<br>Martyr Day: August 20, 1971">
+        <img src="martyr3.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Mohammad Ruhul Amin</b><br>Birthday: 1935<br>Birth district: Noakhali<br>Rank: Engine Room Artificer, Class-1ID Number: 62066<br>Squad: Bangladesh Navy<br>Martyr Day: December 10, 1971">
+        <img src="martyr4.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Nur Mohammad Sheikh</b><br>Birthday: February 26, 1936<br>Birth district: Jessore<br>Rank: Lance Nayek<br>ID Number: 9459<br>Squad: Bangladesh Rifles<br>Martyr Day: September 5, 1971">
+        <img src="martyr5.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Munshi Abdur Rouf</b><br>Birthday: May 1, 1943<br>Birth district: Faridpur<br>Rank: Lance Nayek<br>ID Number: Unavailable<br>Squad: Bangladesh Rifles<br>Martyr Day: April 18, 1971">
+        <img src="martyr6.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Mostofa Kamal</b><br>Birthday: December 16, 1947<br>Birth district: Barishal<br>Rank: Sepoy<br>ID Number: 3937798<br>Squad: Bangladesh Army<br>Martyr Day: April 18, 1971">
+        <img src="martyr7.png" class="martyr" data-info="<b>Bir Sreshtho Shaheed Hamidur Rahman</b><br>Birthday: February 2, 1953<br>Birth district:  JhenaidahRank: Sepoy<br>ID Number: 3943014<br>Squad: Bangladesh Army<br>Martyr Day: October 8, 1971">
+    </div>
+
+    <!-- Quotes Carousel -->
+    <div class="quotes-carousel">
+        <p>"Language is the key to understanding our culture and identity."</p>
+        <p>"February 21 reminds us to cherish and celebrate our native languages."</p>
+        <p>"Mother language connects us to our roots and fosters unity."</p>
+    </div>
+
+    <div class="mini-game" id="miniGame">
+        <h3>Click a city to learn about its history on February 21</h3>
+        <p>Interactive Bangladesh map game loading...</p>
+    </div>
+
+    <button class="btn" type="button"><a href="motherlanguageday-2.html">More</button>
+    
+    <div id="martyr-info" class="modal"></div>
+    
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".martyr").forEach(img => {
+            img.addEventListener("click", function() {
+                let modal = document.getElementById("martyr-info");
+                modal.innerHTML = `<h3>Martyr Details</h3><p>${this.dataset.info}</p>`;
+                modal.style.display = "block";
+                setTimeout(() => modal.style.display = "none", 7000);
+            });
+        });
+
+        function createRaindrop() {
+            let drop = document.createElement("div");
+            drop.classList.add("raindrop");
+            drop.style.left = Math.random() * 100 + "vw";
+            drop.style.animationDuration = Math.random() * 3 + 1 + "s";
+            document.body.appendChild(drop);
+            setTimeout(() => drop.remove(), 2000);
+        }
+        setInterval(createRaindrop, 80);
+    });
+        
+    function showMiniGame() {
+        document.getElementById("miniGame").style.display = "block";
+    }
+</script>
+</body>
+</html>
